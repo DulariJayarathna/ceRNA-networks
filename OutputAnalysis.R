@@ -1,8 +1,3 @@
-Cancer_Type<-c(rep("PRAD",2),rep("BRCA",2),rep("UCEC",2),rep("COAD",2),rep("READ",2))
-Reg_Type<-c(rep(c("Up","Down"),5))
-Value<-c(34,27,71,87,142,103,186,153,165,114)
-Dataset1<-data.frame(Cancer_Type,Reg_Type,Value)
-
 Table_ceOutput_ALL<-data.frame(table(ceOutput_ALL$lncRNA_Gene_miRNA))
 Sig_5times<-Table_ceOutput_ALL[Table_ceOutput_ALL$Freq>4,]
 Sig_4times<-Table_ceOutput_ALL[Table_ceOutput_ALL$Freq>3&&Table_ceOutput_ALL$Freq<5,]
@@ -33,12 +28,6 @@ genes_COAD<-ceOutput_COAD$lncRNAs
 LncRNA_Gene_Symbol_COAD<-getBM(filters = "ensembl_gene_id",attributes=c("ensembl_gene_id","entrezgene_accession","description"),values=genes_COAD,mart=mart)
 genes_READ<-ceOutput_READ$lncRNAs
 LncRNA_Gene_Symbol_READ<-getBM(filters = "ensembl_gene_id",attributes=c("ensembl_gene_id","entrezgene_accession","description"),values=genes_READ,mart=mart)
-
-
-
-
-
-
 
 install.packages("SuperExactTest")
 gene_list<-list(PRAD=Gene_Symbol_PRAD$entrezgene_accession,BRCA=Gene_Symbol_BRCA$entrezgene_accession,UCEC=Gene_Symbol_UCEC$entrezgene_accession,COAD=Gene_Symbol_COAD$entrezgene_accession,READ=Gene_Symbol_READ$entrezgene_accession)
