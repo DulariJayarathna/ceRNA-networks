@@ -1,9 +1,12 @@
+dePseudo_PRAD<-gdcDEReport(deg=DEGAll_PRAD,gene.type = "pseudogene")
+dePC_PRAD<-gdcDEReport(deg=DEGAll_PRAD,gene.type = "protein-coding")
+demiR<-gdcDEReport(deg = DEGMIR_PRAD)
+
 lnc<-rownames(dePseudo_PRAD)
 pc<-rownames(dePC_PRAD)
 mir<-rownames(demiR_PRAD)
 ###############################
 
-#######################################
 library(dplyr)
 lncDa <- unlist(rnaExpr_PRAD[lnc,]) %>% t()
 pcDa <- unlist(rnaExpr_PRAD[pc,]) %>% t()
